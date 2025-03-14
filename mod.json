@@ -1,8 +1,1 @@
-{
-    "enabled": true,
-    "name": "Purpz's Themeable",
-    "id": "themeable",
-    "author": "_IPz",
-    "description": "Customizable Theme for Beatblock",
-    "version": "1"
-}
+{"name":"Purpz's Themeable","version":"1.2","config":{"outlineG":100,"outlineB":150,"mainR":45,"mainG":15,"mainB":65,"outlineR":150},"id":"themeable","enabled":true,"author":"_IPz","description":"Customizable Theme for Beatblock"}
