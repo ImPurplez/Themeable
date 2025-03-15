@@ -21,8 +21,13 @@ target = "states/SongSelect.lua"
 pattern = '''shuv.resetPal()'''
 position = "after"
 payload = '''
-shuv.pal[0] = {r= mods[themeable].config.mainR, g=mods[themeable].config.mainG, b=mods[themeable].config.mainB}
-shuv.pal[1] = {r= mods[themeable].config.outlineR, g=mods[themeable].config.outlineG, b=mods[themeable].config.outlineB}
+if mods[themeable].config.DefaultColors then
+    shuv.pal[0] = {r= 255, g=255, b=255}
+    shuv.pal[1] = {r= 0, g=0, b=0}
+else
+    shuv.pal[0] = {r= mods[themeable].config.mainR, g=mods[themeable].config.mainG, b=mods[themeable].config.mainB}
+    shuv.pal[1] = {r= mods[themeable].config.outlineR, g=mods[themeable].config.outlineG, b=mods[themeable].config.outlineB}
+end
 '''
 match_indent = true
 
@@ -32,8 +37,13 @@ target = "states/Menu.lua"
 pattern = '''shuv.resetPal()'''
 position = "after"
 payload = '''
-shuv.pal[0] = {r= mods[themeable].config.mainR, g=mods[themeable].config.mainG, b=mods[themeable].config.mainB}
-shuv.pal[1] = {r= mods[themeable].config.outlineR, g=mods[themeable].config.outlineG, b=mods[themeable].config.outlineB}
+if mods[themeable].config.DefaultColors then
+    shuv.pal[0] = {r= 255, g=255, b=255}
+    shuv.pal[1] = {r= 0, g=0, b=0}
+else
+    shuv.pal[0] = {r= mods[themeable].config.mainR, g=mods[themeable].config.mainG, b=mods[themeable].config.mainB}
+    shuv.pal[1] = {r= mods[themeable].config.outlineR, g=mods[themeable].config.outlineG, b=mods[themeable].config.outlineB}
+end
 '''
 match_indent = true
 
