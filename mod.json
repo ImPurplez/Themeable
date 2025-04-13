@@ -1,17 +1,17 @@
 {
+    "id": "themeable",
     "author": "_IPz",
     "description": "Customizable Theme for Beatblock",
-    "version": "1.2.2",
-    "name": "Purpz's Themeable",
     "config": {
-        "DefaultColors": true,
         "outlineR": 150,
         "outlineG": 50,
         "outlineB": 175,
+        "DefaultColors": false,
         "mainR": 25,
         "mainG": 0,
-        "mainB": 10
+        "mainB": 30
     },
     "enabled": true,
-    "id": "themeable"
+    "name": "Purpz's Themeable",
+    "version": "1.2.2.2"
 }
