@@ -1,19 +1,7 @@
 [manifest]
-version = "1.2"
+version = "1.3"
 dump_lua = true
 priority = 1
-
-[[patches]]
-[patches.copy]
-target = "states/SongSelect.lua"
-position = "prepend"
-sources = ["theming.lua"]
-
-[[patches]]
-[patches.copy]
-target = "states/Menu.lua"
-position = "prepend"
-sources = ["theming.lua"]
 
 [[patches]]
 [patches.pattern]
@@ -21,12 +9,29 @@ target = "states/SongSelect.lua"
 pattern = '''shuv.resetPal()'''
 position = "after"
 payload = '''
-if mods[themeable].config.DefaultColors then
-    shuv.pal[0] = {r= 255, g=255, b=255}
-    shuv.pal[1] = {r= 0, g=0, b=0}
+if mods["themeable"].config.DefaultColors then
+    shuv.pal[0] = {r=255,g=255,b=255}
+    shuv.pal[1] = {r=0,g=0,b=0}
 else
-    shuv.pal[0] = {r= mods[themeable].config.mainR, g=mods[themeable].config.mainG, b=mods[themeable].config.mainB}
-    shuv.pal[1] = {r= mods[themeable].config.outlineR, g=mods[themeable].config.outlineG, b=mods[themeable].config.outlineB}
+    shuv.pal[0] = {r=mods["themeable"].config.mainR,g=mods["themeable"].config.mainG,b=mods["themeable"].config.mainB}
+    shuv.pal[1] = {r=mods["themeable"].config.outlineR,g = mods["themeable"].config.outlineG,b=mods["themeable"].config.outlineB}
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "states/AtomMap.lua"
+pattern = '''shuv.pal[2] = { r = 205, g = 205, b = 205 }'''
+position = "after"
+payload = '''
+if mods["themeable"].config.DefaultColors then
+    shuv.pal[0] = {r = 255, g = 255, b = 255}
+    shuv.pal[1] = {r = 0, g = 0, b = 0}
+else
+    shuv.pal[0] = { r = mods["themeable"].config.mainR, g = mods["themeable"].config.mainG, b = mods["themeable"].config.mainB}
+    shuv.pal[1] = { r = mods["themeable"].config.outlineR, g = mods["themeable"].config.outlineG, b = mods["themeable"].config.outlineB}
+    shuv.pal[2] = { r = mods["themeable"].config.bgVarR, g = mods["themeable"].config.bgVarG, b = mods["themeable"].config.bgVarB}
 end
 '''
 match_indent = true
@@ -34,15 +39,17 @@ match_indent = true
 [[patches]]
 [patches.pattern]
 target = "states/Menu.lua"
-pattern = '''shuv.resetPal()'''
+pattern = '''shuv.pal[2] = {r= 205, g=205, b=205}'''
 position = "after"
 payload = '''
-if mods[themeable].config.DefaultColors then
+if mods["themeable"].config.DefaultColors then
     shuv.pal[0] = {r= 255, g=255, b=255}
     shuv.pal[1] = {r= 0, g=0, b=0}
+    shuv.pal[2] = {r= 205, g=205, b=205}
 else
-    shuv.pal[0] = {r= mods[themeable].config.mainR, g=mods[themeable].config.mainG, b=mods[themeable].config.mainB}
-    shuv.pal[1] = {r= mods[themeable].config.outlineR, g=mods[themeable].config.outlineG, b=mods[themeable].config.outlineB}
+    shuv.pal[0] = {r= mods["themeable"].config.mainR, g=mods["themeable"].config.mainG, b=mods["themeable"].config.mainB}
+    shuv.pal[1] = {r= mods["themeable"].config.outlineR, g=mods["themeable"].config.outlineG, b=mods["themeable"].config.outlineB}
+    shuv.pal[2] = {r= mods["themeable"].config.bgVarR, g=mods["themeable"].config.bgVarG, b=mods["themeable"].config.bgVarB}
 end
 '''
 match_indent = true
